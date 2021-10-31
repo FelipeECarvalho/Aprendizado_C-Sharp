@@ -1,19 +1,25 @@
 ﻿using System;
+using Projeto_05.Entities;
+using Projeto_05.Entities.Enums;
 
-namespace Projeto_05 {
-	class Program {
-		static void Main(string[] args) {
-			Console.WriteLine("Frase do dia: ");
-			foreach (char palavra in "Olá Mundo!") {
-				Console.WriteLine(palavra);
-			}
+namespace Projeto_05
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			Order product = new Order
+			{
+				Id = 1080,
+				Moment = DateTime.Now,
+				Status = 0
+			};
 
-			DateTime hoje = DateTime.Now;
-			string today = hoje.ToString();
-			Console.WriteLine("Dia de hoje: ");
-			foreach (char word in today) {
-				Console.WriteLine(word);
-			}
+			Console.WriteLine(product);
+			string txt = OrderStatus.PendingPayment.ToString();
+			OrderStatus os = (OrderStatus)Enum.Parse(typeof(OrderStatus), "Delivered");
+			Console.WriteLine(txt);
+			Console.WriteLine(os);
 		}
 	}
 }
